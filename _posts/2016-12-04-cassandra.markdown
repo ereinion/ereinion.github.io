@@ -63,5 +63,13 @@ It behaves like a dictionary, can be called like one, but does not pass as one.
 
 I will look more into this in my free time to hopefully resolve the matter.
 
+EDIT: After working with Cassandra I cannot in good conscience reccomend it to
+anyone who needs reliability in their data sets. So far, just with 2 fairly simple
+tables, I have had multiple crashes of Cassandra. I have also imported cql files
+that were properly formatted (entered them in manually just fine) and there was
+massive amounts of data loss (about 80% of the data didn't make it). From research
+this isn't strictly a Cloud 9 issue, although attempting to run the resource heavy
+Cassandra on a VM is frustratingly slow.
+
 o7
 -Roy
