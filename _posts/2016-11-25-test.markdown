@@ -1,17 +1,26 @@
 ---
 layout: post
-title:  "Testing post"
-date:   2016-11-25
-categories: Test Post
+title:  "Cassandra and Cloud 9"
+date:   2016-12-04
+categories: Cassandra
 ---
-This is going to be a test post where I can explore the different features that Markdown offers
+While attempting to get a Cassandra Socket IO program up and running, I came
+across a strange issue.
+The version of Cassandra that we were installing was using Cython. When doing
 
 {% highlight ruby %}
-It looks like code snippets are put inside of this, 
-remember that you can check out the blog posts of others
-For more examples!
+sudo pip install cassandra-driver
 {% endhighlight %}
 
-How to format links [Name of object][linkvar]. 
+errors were being generated relating to these Cython files. After scouring the 
+internet I found a way around the issue using
 
-[linkvar]: http://google.com
+{% highlight ruby %}
+sudo pip install six futures
+sudo pip install --install-option="--no-cython" cassandra-driver
+{% endhighlight %}
+
+This finally got my cassandra drivers to install properly for usage in python.
+The only downside is that it wiped out my cassandra keyspaces from having to do
+a clean install. 
+
